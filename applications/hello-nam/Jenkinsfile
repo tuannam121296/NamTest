@@ -22,7 +22,6 @@ node {
 
     stage "Deploy"
 
-        sh "kubectl apply -f applications/hello-nam/k8s/deployment.yaml"
         sh "kubectl set image deployment.v1.apps/hello-nam hello-nam=127.0.0.1:30400/hello-nam:$imageName"
 
 }
