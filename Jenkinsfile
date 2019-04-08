@@ -22,6 +22,6 @@ node {
 
     stage "Deploy"
 
-        kubernetesDeploy configs: "applications/${appName}/k8s/*.yaml", kubeconfigId: 'nam_kube'
+        sh "sed 's#__IMAGE__#'$imageName'#' applications/hello-nam/k8s/deployment.yaml | kubectl apply -f -"
 
 }
