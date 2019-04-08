@@ -22,6 +22,6 @@ node {
 
     stage "Deploy"
 
-        sh "sed 's#__IMAGE__#'$imageName'#' applications/hello-nam/k8s/deployment.yaml | kubectl apply -f -"
+        sh "sed 's#__image__#image:'$imageName'#' applications/hello-nam/k8s/deployment.yaml | kubectl apply -f -"
 
 }
