@@ -22,5 +22,5 @@ node {
 
     stage "Deploy"
 
-        sh"sed s%$BUILD_TAG%${tag}% foobar-deployment.yaml | kubectl apply -f - --record"
+        sh "sed 's#__IMAGE__#'$imageName'#' part1/hello-kenzan/k8s/deployment.yaml | kubectl apply -f -"
 }

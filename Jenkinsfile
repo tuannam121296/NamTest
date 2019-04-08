@@ -22,6 +22,6 @@ node {
 
     stage "Deploy"
 
-        sh"sed s%BUILD_TAG%${tag}% applications/hello-nam/k8s/deployment.yaml | kubectl apply -f - --record"
+        kubernetesDeploy configs: "applications/${appName}/k8s/*.yaml", kubeconfigId: 'nam-kube'
 
 }
