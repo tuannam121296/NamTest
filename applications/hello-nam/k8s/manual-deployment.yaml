@@ -30,7 +30,7 @@ spec:
         tier: hello-nam
     spec:
       containers:
-      - image: 127.0.0.1:30400/hello-nam:latest
+      - image: 127.0.0.1:30400/hello-nam:06a372e
         name: hello-nam
         ports:
         - containerPort: 80
