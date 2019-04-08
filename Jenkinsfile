@@ -22,6 +22,6 @@ node {
 
     stage "Deploy"
 
-        sh"sed s%$BUILD_TAG%${tag}% applications/hello-nam/k8s/deployment.yaml | kubectl apply -f - --record"
+        sh"sed s%$BUILD_TAGG%${tag}% applications/hello-nam/k8s/deployment.yaml | kubectl apply -f - --record"
 
 }
