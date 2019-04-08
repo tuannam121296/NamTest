@@ -22,5 +22,5 @@ node {
 
     stage "Deploy"
 
-        sh"sed s%$BUILD_TAG%${TAG}% foobar-deployment.yaml | kubectl apply -f - --record"
+        sh"sed s%$BUILD_TAG%${tag}% foobar-deployment.yaml | kubectl apply -f - --record"
 }
