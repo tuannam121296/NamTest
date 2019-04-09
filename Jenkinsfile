@@ -23,6 +23,4 @@ node {
     stage "Deploy"
 
         kubernetesDeploy configs: "applications/${appName}/k8s/*.yaml", kubeconfigId: 'nam_kube'
-        sh "kubectl set image deployment.v1.apps/hello-nam hello-nam=$imageName"
-
 }
