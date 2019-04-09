@@ -1,6 +1,5 @@
 FROM nginx:latest
 
-COPY index.html /usr/share/nginx/html/index.html
-COPY DockerFileEx.jpg /usr/share/nginx/html/DockerFileEx.jpg
+COPY source/* /usr/share/nginx/html/
 
 EXPOSE 80
