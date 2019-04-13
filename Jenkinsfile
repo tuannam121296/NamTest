@@ -21,7 +21,10 @@ node {
         sh "docker push ${imageName}"
 
     stage "Deploy"
-
+        
         kubernetesDeploy configs: "applications/${appName}/k8s/*.yaml", kubeconfigId: 'nam_kube'
-        sh ("kubectl set image deployment.v1.apps/hello-nam hello-nam=127.0.0.1:30400/hello-nam:${imageName}")
+        
+    stage "AutoDeploy"
+    	
+    	sh ("kubectl set image deployment.v1.apps/hello-nam hello-nam=127.0.0.1:30400/hello-nam:${imageName}")
 }
