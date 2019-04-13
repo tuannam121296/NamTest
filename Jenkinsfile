@@ -8,13 +8,13 @@ node {
 
     tag = readFile('commit-id').replace("\n", "").replace("\r", "")
     appName = "hello-nam"
-    registryHost = "127.0.0.1:30912/"
+    registryHost = "127.0.0.1:30400/"
     imageName = "${registryHost}${appName}:${tag}"
     env.BUILDIMG=imageName
 
     stage "Build"
     
-        sh "docker build -t ${imageName} applications/hello-nam"
+        sh "docker build -t ${imageName} -f applications/hello-nam/Dockerfile applications/hello-nam"
     
     stage "Push"
 
@@ -22,5 +22,5 @@ node {
 
     stage "Deploy"
 
-        sh "kubectl set image deployment.v1.apps/hello-nam hello-nam=127.0.0.1:30400/hello-nam:${imageName}"
+        kubernetesDeploy configs: "applications/${appName}/k8s/*.yaml", kubeconfigId: 'nam_kube'
 }
